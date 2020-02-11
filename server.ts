@@ -18,6 +18,10 @@ router.use('/delay/:milliseconds', (req, res) => {
 
 const server = http.createServer(router);
 
+router.get('/loaderio-5fcec32dc41310c6d641b02c6258ca6b.txt', (req, res) => {
+    res.sendFile('/loaderio-5fcec32dc41310c6d641b02c6258ca6b.txt');
+});
+
 router.get('/', (req, res) => {
     res.sendStatus(200);
 });

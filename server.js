@@ -13,6 +13,9 @@ router.use('/delay/:milliseconds', function (req, res) {
     }, req.params.milliseconds);
 });
 var server = http.createServer(router);
+router.get('/loaderio-5fcec32dc41310c6d641b02c6258ca6b.txt', function (req, res) {
+    res.sendFile('/loaderio-5fcec32dc41310c6d641b02c6258ca6b.txt');
+});
 router.get('/', function (req, res) {
     res.sendStatus(200);
 });
