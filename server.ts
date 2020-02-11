@@ -3,8 +3,9 @@
  * @author Darren Hill darren@tacticaltools.com
  */
 
+import * as http from 'http';
 import * as express from 'express';
-import * as serverless from 'serverless-http';
+import {AddressInfo} from 'net';
 
 const router = express();
 
@@ -15,8 +16,13 @@ router.use('/delay/:milliseconds', (req, res) => {
     }, req.params.milliseconds);
 });
 
+const server = http.createServer(router);
+
 router.get('/', (req, res) => {
     res.sendStatus(200);
 });
 
-serverless(router);
+server.listen(process.env.PORT || 3000, +process.env.IP,  () => {
+    const addr: AddressInfo = <AddressInfo>server.address();
+    console.log(`Chat server listening at ${addr.address} : ${addr.port}`);
+});
