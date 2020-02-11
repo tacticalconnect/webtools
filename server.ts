@@ -16,15 +16,13 @@ router.use('/delay/:milliseconds', (req, res) => {
     }, req.params.milliseconds);
 });
 
-const server = http.createServer(router);
-
-router.get('/loaderio-5fcec32dc41310c6d641b02c6258ca6b.txt', (req, res) => {
-    res.sendFile('/loaderio-5fcec32dc41310c6d641b02c6258ca6b.txt');
-});
+router.use(express.static('public'));
 
 router.get('/', (req, res) => {
     res.sendStatus(200);
 });
+
+const server = http.createServer(router);
 
 server.listen(process.env.PORT || 3000, +process.env.IP,  () => {
     const addr: AddressInfo = <AddressInfo>server.address();
