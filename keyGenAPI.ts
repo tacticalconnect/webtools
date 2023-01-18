@@ -33,7 +33,7 @@ export const getAllLicensePromise: GetResourcePromise = (nextLink = `/v1/account
             'Accept': 'application/vnd.api+json',
             'Authorization': `Bearer ${process.env.KEYGEN_PRODUCT_TOKEN}`,
         }
-    }).then(httpResponse => httpResponse.json());
+    }).then(httpResponse => httpResponse.json() as Promise<KeyGenResponse>);
 };
 
 export const getPaginatedElements = (getResourcePromise: GetResourcePromise, nextLink?: string, elements: Datum[] = []) => {
