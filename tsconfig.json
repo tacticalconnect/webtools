@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es5",
+    "target": "es2019",
+    "moduleResolution": "node",
     "sourceMap": false,
-    "resolveJsonModule": true,
-    "noImplicitUseStrict": true,
-    "lib": ["dom", "es6"]
+    "noImplicitUseStrict": true
   },
   "exclude": [
     "node_modules"

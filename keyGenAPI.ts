@@ -4,7 +4,6 @@
  */
 
 import {Datum, KeyGenResponse} from './keyGenResponse';
-import fetch from 'node-fetch';
 
 export const getAccountType = (instanceAccountId: string, accountTypeId: string): 'Production' | 'Sandbox' | 'ReleasePreview' | 'Unknown' | 'TestAccount' => {
     if (accountTypeId) {

@@ -58,7 +58,7 @@ router.get('/', (req, res) => {
 
 const server = http.createServer(router);
 
-server.listen(process.env.PORT || 3000, +process.env.IP,  () => {
+server.listen(process.env.PORT || 3000, +process.env.IP, () => {
     const addr: AddressInfo = <AddressInfo>server.address();
     console.log(`Chat server listening at ${addr.address} : ${addr.port}`);
 });
