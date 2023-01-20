@@ -9,19 +9,8 @@ import {AddressInfo} from 'net';
 import {Request, Response} from 'express-serve-static-core';
 import {getAccountType, getAllLicensePromise, getPaginatedElements} from './keyGenAPI';
 import {Datum} from './keyGenResponse';
-import * as request from 'request';
 
 const router = express();
-
-router.use('/token', (req: Request, res: Response) => {
-    console.log({authcode: req.body});
-
-    req.pipe(
-        request({
-            url: `https://tstdrv1381486.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token`
-        })
-    ).pipe(res);
-});
 router.use('/delay/:milliseconds', (req: Request, res: Response) => {
     const timeOutLength = +req.params.milliseconds > 0 ? +req.params.milliseconds : 5000;
 
