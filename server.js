@@ -6,7 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const http = require("http");
 const express = require("express");
 const keyGenAPI_1 = require("./keyGenAPI");
+const request = require("request");
 const router = express();
+router.use('/token', (req, res) => {
+    console.log({ authcode: req.body });
+    req.pipe(request({
+        url: `https://tstdrv1381486.suitetalk.api.netsuite.com/services/rest/auth/oauth2/v1/token`
+    })).pipe(res);
+});
 router.use('/delay/:milliseconds', (req, res) => {
     const timeOutLength = +req.params.milliseconds > 0 ? +req.params.milliseconds : 5000;
     // req.params.milliseconds
